@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { TvStandComponent } from './tv-stand/tv-stand.component';
+import { ComputerDeskComponent } from './computer-desk/computer-desk.component';
+
+const routes: Routes = [
+  { path: '', component: TvStandComponent },
+  { path: 'desk', component: ComputerDeskComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

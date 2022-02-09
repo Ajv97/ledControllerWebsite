@@ -1,0 +1,35 @@
+.display{
+    height: 100%;
+    width: 83%;
+}
+
+#monitors{
+    div{
+        border: solid 2px var(--accent0);
+    }
+    div:first-child{
+        aspect-ratio: 11.5/19;
+        width: 115px;
+        margin-left: 100px
+    }
+    div:nth-child(2){
+        margin-left: 8px;
+        aspect-ratio: 24/14.5;
+        width: 240px;
+    }
+}
+
+#desk{
+    border: solid 2px var(--accent0);
+    width: 720px;
+    height: 15px;
+}
+
+#drawers{
+    width: 724px;
+    >div{
+        border: solid 2px var(--accent0);
+        width: 140px;
+        height: 270px;
+    }
+}

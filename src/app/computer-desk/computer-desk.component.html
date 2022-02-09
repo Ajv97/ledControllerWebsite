@@ -1,0 +1,81 @@
+<div class='fxRow' style='height: 100%'>
+    <div class='display fxCol jcCenter aiCenter'>
+        <div id='monitors' class='fxRow jcCenter aiCenter'>
+            <div [style.background-color]="this.getColor(1)" (click)='this.setBoxId(1)'></div>
+            <div [style.background-color]="this.getColor(0)" (click)='this.setBoxId(0)'></div>
+        </div>
+        <div id='desk' class='my-2'></div>
+        <div id='drawers' class='fxRow jcBtwn'>
+            <div class='fxCol jcEven'>
+                <div class='barX m-2'></div>
+                <div class='barX m-2'></div>
+                <div class='barX m-2'></div>
+            </div>
+            <div class='fxCol jcEven'>
+                <div class='barX m-2'></div>
+                <div class='barX m-2'></div>
+                <div class='barX m-2'></div>
+            </div>
+        </div>
+    </div>
+    <div class='barY my-2'></div>
+    <div class='editor fxCol jcBtwn aiStr'>
+        <div>
+            <div class='mb-2 fxRow jcBtwn'>
+                <div class='small box'></div>
+                <div class='small box'></div>
+                <div class='small box'></div>
+                <div class='small box'></div>
+                <div class='small box'></div>
+            </div>
+            <div class='mb-3 fxRow jcBtwn'>
+                <div class='small box'></div>
+                <div class='small box'></div>
+                <div class='small box'></div>
+                <div class='small box'></div>
+                <div class='small box'></div>
+            </div>
+            <div class='fxRow jcBtwn mb-3'>
+                <div id='colorViewer' class='fxRow'>
+                    <div class='previous' [style.background-color]="this.editor.getStyledPrevious()" (click)='this.editor.syncColors()'></div>
+                    <div class='current' [style.background-color]="this.editor.getStyledColor()"></div>
+                </div>
+                <div id='actions' class='fxCol jcEven aiCenter'>
+                    <button (click)='this.editor.copy()'><mat-icon [style.color]='this.editor.getStyledCopy()'>content_copy</mat-icon></button>
+                    <button (click)='this.setColor()'><mat-icon [style.color]="this.editor.getStyledColor()">done</mat-icon></button>
+                    <button (click)='this.paste()'><mat-icon [style.color]='this.editor.getStyledCopy()'>content_paste</mat-icon></button>
+                </div>
+            </div>
+            <div class='sliders fxCol jcBtwn'>
+                <input class='r' [(ngModel)]='this.editor.color.r'
+                    (change)='this.updateColor(this.editor.color)'
+                    name='red' type='range' min='0' max='255'>
+                <input class='my-3 g' [(ngModel)]='this.editor.color.g'
+                    (change)='this.updateColor(this.editor.color)'
+                    name='green' type='range' min='0' max='255'>
+                <input class='b' [(ngModel)]='this.editor.color.b'
+                    (change)='this.updateColor(this.editor.color)'
+                    name='blue' type='range' min='0' max='255'>
+            </div>
+        </div>
+        <div class='fxCol jcEnd aiStr'>
+            <div id='powerButton' class='fxRow jcCenter'>
+                <mat-icon (click)='this.editor.toggleOff()' [style.color]="this.editor.settings.on_off ? '#81879E':'#4c4c63'">power_settings_new</mat-icon>
+            </div>
+            <div class='sliders fxCol jcBtwn' style='padding-left: 4px'>
+                <div class='fxRow'>
+                    <mat-icon>brightness_low</mat-icon>
+                    <input [(ngModel)]='this.editor.settings.day_brightness'
+                        (change)='this.editor.setDayBrightness()'
+                        name='brightness' type='range' min='0' max='255'>
+                </div>
+                <div class='fxRow'>
+                    <mat-icon>dark_mode</mat-icon>
+                    <input [(ngModel)]='this.editor.settings.night_brightness'
+                        (change)='this.editor.setNightBrightness()'
+                        name='brightness' type='range' min='0' max='255'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

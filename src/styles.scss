@@ -1,1 +1,258 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ledController-primary: mat.define-palette(mat.$indigo-palette);
+$ledController-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ledController-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ledController-theme: mat.define-light-theme((
+  color: (
+    primary: $ledController-primary,
+    accent: $ledController-accent,
+    warn: $ledController-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ledController-theme);
+
+:root{
+    --r: 0;
+    --g: 0;
+    --b: 0;
+
+    --background: #262636;
+
+    --text: #F3F3FA;
+    
+    --accent0: #81879E;
+    --accent1: #9494A2;
+    --accent2: #8C94A3;
+}
+
+body{
+    background-color: var(--background);
+    margin: 0;
+}
+
+*{
+    font-family: Oswald, 'sans seriff';
+}
+
+mat-icon{
+    color: var(--accent0)
+}
+
+.fxRow{
+    display: flex;
+    flex-direction: row;
+}.fxCol{
+    display: flex;
+    flex-direction: column;
+}.jcBtwn{
+    justify-content: space-between;
+}.jcEven{
+    justify-content: space-evenly;
+}.jcStart{
+    justify-content: flex-start;
+}.jcCenter{
+    justify-content: center;
+}.jcEnd{
+    justify-content: flex-end;
+}.aiStr{
+    align-items: stretch;
+}.aiStart{
+    align-items: flex-start;
+}.aiCenter{
+    align-items: center;
+}.aiEnd{
+    align-items: flex-end;
+}
+
+.m-0{
+    margin: 0px;
+}.m-1{
+    margin: 4px;
+}.m-2{
+    margin: 8px;
+}.m-3{
+    margin: 12px;
+
+}.my-0{
+    margin-top: 0;
+    margin-bottom: 0;
+}.my-1{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}.my-2{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}.my-3{
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+}.mb-0{
+    margin-bottom: 0;
+}.mb-1{
+    margin-bottom: 4px;
+}.mb-2{
+    margin-bottom: 8px;
+}.mb-3{
+    margin-bottom: 12px;
+}
+
+.barY{
+    width: 2px;
+    background-color: var(--accent0);
+    border-radius: 1px;
+}.barX{
+    height: 2px;
+    background-color: var(--accent0);
+    border-radius: 1px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.box{
+    aspect-ratio: 1;
+    border-color: var(--accent0) !important;
+    cursor: pointer;
+}
+.small{
+    width: 29%;
+    border: solid 2px;
+}
+.editor{
+    width: calc(17% - 24px);
+    padding: 12px;
+    .small{
+        width: 15%;
+    }
+    .editorBox{
+        margin-bottom: 8px;
+    }
+    #colorViewer{
+        width: 80%;
+        aspect-ratio: 3/2;
+        >div{
+            display: inline-block;
+            height: 100%;
+            border: solid 2px var(--accent0);
+        }.previous{
+            width: 30%;
+            border-right: none;
+        }.current{
+            width: 70%;
+            border-left: none;
+    }}
+    #actions{
+        width: 20%;
+        button{
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }mat-icon{
+            color: var(--accent0);
+    }}
+    .sliders{
+        border: solid 2px var(--accent0);
+        padding: 12px 16px 12px 12px;
+    }
+    #powerButton{
+        height: 72px;
+        mat-icon{
+            transform: scale(4);
+            height: 24px;
+            width: 24px;
+            cursor:pointer;
+        }
+    }
+}
+            
+input[type=range]{
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
+    background: var(--accent0);
+    cursor: pointer;
+    margin-top: -5px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: inset 0 0 3px var(--background); /* Add cool effects to your sliders! */
+    transition: 0.5s;
+}
+
+
+
+input[type=range]::-webkit-slider-runnable-track{
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: var(--accent0);
+    border-radius: 1px;
+    border: none;
+    transition: 1s;
+}
+
+.sliders:hover{
+    
+    input[type=range].r::-webkit-slider-thumb{
+        background: red !important;
+    }
+    input[type=range].g::-webkit-slider-thumb{
+        background: green !important;
+    }
+    input[type=range].b::-webkit-slider-thumb{
+        background: blue !important;
+    }
+
+    input[type=range].r::-webkit-slider-runnable-track{
+        background: linear-gradient(90deg, rgb(0,var(--g),var(--b)) 0%, rgb(255,var(--g),var(--b)) 100%);
+    }
+    input[type=range].g::-webkit-slider-runnable-track{
+        background: linear-gradient(90deg, rgb(var(--r),0,var(--b)) 0%, rgb(var(--r),255,var(--b)) 100%);
+    }
+    input[type=range].b::-webkit-slider-runnable-track{
+        background: linear-gradient(90deg, rgb(var(--r),var(--g),0) 0%, rgb(var(--r),var(--g),255) 100%);
+    }
+}
+
+
+input[type=range]:focus{
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track{
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}

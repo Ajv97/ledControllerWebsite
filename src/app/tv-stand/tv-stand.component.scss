@@ -1,0 +1,26 @@
+.box{
+    aspect-ratio: 1;
+    border-color: var(--accent0) !important;
+    cursor: pointer;
+}
+
+.container{
+    width: calc(15% + 4px);
+    margin: 8px;
+}
+
+.small{
+    width: 29%;
+    border: solid 2px;
+}
+
+.big{
+    width: 15%;
+    margin: 8px;
+    border: solid 2px;
+}
+
+.display{
+    height: 100%;
+    width: 83%;
+}

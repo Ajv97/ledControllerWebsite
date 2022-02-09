@@ -1,0 +1,42 @@
+header{
+    width: 15%;
+    height: 100vh;
+    padding: 0 8px;
+    button{
+        background-color: transparent;
+        border: none;
+        height: 21px;
+        padding: 2px 0;
+        width: 25px;
+        cursor: pointer;
+
+        div{
+            width: 25px;
+            transition: 0.4s;
+}}}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 200;
+    font-size: 24px;
+}
+.fade{
+    opacity: 0;
+    transform: scaleX(0);
+}
+    
+.left45{
+    transform:  translate(0, -7.5px) rotate(-45deg);
+}
+
+.right45{
+    transform:  translate(0, 7.5px) rotate(45deg);
+}
+
+.view{
+    width: 100%;
+}
