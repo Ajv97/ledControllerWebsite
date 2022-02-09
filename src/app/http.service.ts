@@ -9,7 +9,7 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
   urlBase = 'http://api.alexvanbeekum.com:8080/api';
-  // urlBase='http://localhost:8080/api';
+  urlBase='http://localhost:8080/api';
 
 
   getBoxesId(id){
